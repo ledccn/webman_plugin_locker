@@ -56,7 +56,7 @@ class MakeLocker extends Command
     /**
      * @param string $file
      * @param string $class
-     * @param int $key
+     * @param string $key
      * @return void
      */
     protected function createTimer(string $file, string $class, string $key): void
