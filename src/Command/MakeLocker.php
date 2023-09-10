@@ -59,7 +59,7 @@ class MakeLocker extends Command
      * @param int $key
      * @return void
      */
-    protected function createTimer(string $file, string $class, int $key): void
+    protected function createTimer(string $file, string $class, string $key): void
     {
         $path = pathinfo($file, PATHINFO_DIRNAME);
         if (!is_dir($path)) {
