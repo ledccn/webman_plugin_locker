@@ -7,7 +7,8 @@ use Symfony\Component\Lock\Store\RedisStore;
  * 业务锁配置
  */
 return [
-    'storage' => 'redis', // file/redis， 建议使用 redis，file 不支持 ttl
+    // file|redis，建议使用redis；file不支持 ttl
+    'storage' => 'redis',
     'storage_configs' => [
         'file' => [
             'class' => FlockStore::class,
@@ -25,8 +26,11 @@ return [
         ],
     ],
     'default_config' => [
-        'ttl' => 300, // 默认锁超时时间
-        'auto_release' => true, // 是否自动释放，建议设置为 true
-        'prefix' => 'lock_', // 锁前缀
+        // 默认锁超时时间
+        'ttl' => 300,
+        // 是否自动释放，建议设置为 true
+        'auto_release' => true,
+        // 锁前缀
+        'prefix' => 'lock_',
     ],
 ];

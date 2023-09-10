@@ -13,6 +13,7 @@ class Install
      * @var array
      */
     protected static array $pathRelation = array(
+        'config/plugin/ledc/locker' => 'config/plugin/ledc/locker',
         'config/lock.php' => 'config/lock.php',
     );
 
