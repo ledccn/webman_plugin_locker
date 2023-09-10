@@ -31,7 +31,7 @@ class Locker
     public static function __callStatic(string $method, array $arguments)
     {
         $class = str_replace('::', '_', static::class);
-        $key = $arguments[0] ?? '';
+        $key = $arguments[0] ?? 'empty';
         unset($arguments[0]);
         return static::createLock($class . ':' . $method  . ':' . $key, ...$arguments);
     }
