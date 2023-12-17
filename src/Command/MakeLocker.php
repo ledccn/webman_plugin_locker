@@ -72,11 +72,11 @@ class MakeLocker extends Command
 namespace app\\locker;
 
 use Ledc\\Locker\\Locker;
-use Symfony\\Component\\Lock\\LockInterface;
+use Symfony\\Component\\Lock\\SharedLockInterface;
 
 /**
  * 业务锁：{$class}Locker
- * @method static LockInterface lock(?string \${$key} = null, ?float \$ttl = null, ?bool \$autoRelease = null, ?string \$prefix = null) 创建锁
+ * @method static SharedLockInterface lock(?string \${$key} = null, ?float \$ttl = null, ?bool \$autoRelease = null, ?string \$prefix = null) 创建锁
  */
 class {$class}Locker extends Locker
 {

@@ -4,7 +4,7 @@ namespace Ledc\Locker;
 
 use support\Container;
 use Symfony\Component\Lock\LockFactory;
-use Symfony\Component\Lock\LockInterface;
+use Symfony\Component\Lock\SharedLockInterface;
 
 /**
  * 业务锁
@@ -26,7 +26,7 @@ class Locker
     /**
      * @param string $method
      * @param array $arguments
-     * @return LockInterface
+     * @return SharedLockInterface
      */
     public static function __callStatic(string $method, array $arguments)
     {
@@ -42,9 +42,9 @@ class Locker
      * @param float|null $ttl 默认锁超时时间（为null时取配置文件内的值）
      * @param bool|null $autoRelease 是否自动释放，建议设置为 true（为null时取配置文件内的值）
      * @param string|null $prefix 锁前缀（为null时取配置文件内的值）
-     * @return LockInterface
+     * @return SharedLockInterface
      */
-    final protected static function createLock(string $key, ?float $ttl = null, ?bool $autoRelease = null, ?string $prefix = null): LockInterface
+    final protected static function createLock(string $key, ?float $ttl = null, ?bool $autoRelease = null, ?string $prefix = null): SharedLockInterface
     {
         if (null === static::$defaultConfig) {
             static::$defaultConfig = config('lock.default_config', []);
