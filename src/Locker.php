@@ -50,9 +50,9 @@ class Locker
             static::$defaultConfig = config('lock.default_config', []);
         }
         $config = static::$defaultConfig;
-        $ttl = $ttl ?? $config['ttl'] ?? 300;
-        $autoRelease = $autoRelease ?? $config['auto_release'] ?? true;
-        $prefix = $prefix ?? $config['prefix'] ?? 'lock_';
+        $ttl ??= $config['ttl'] ?? 300;
+        $autoRelease ??= $config['auto_release'] ?? true;
+        $prefix ??= $config['prefix'] ?? 'lock_';
         return static::getLockFactory()->createLock($prefix . $key, $ttl, $autoRelease);
     }
 

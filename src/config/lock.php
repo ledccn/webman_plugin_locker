@@ -18,11 +18,9 @@ return [
         ],
         'redis' => [
             'class' => RedisStore::class,
-            'construct' => function () {
-                return [
-                    'redis' => \support\Redis::connection('default')->client(),
-                ];
-            },
+            'construct' => fn() => [
+                'redis' => \support\Redis::connection('default')->client(),
+            ],
         ],
     ],
     'default_config' => [

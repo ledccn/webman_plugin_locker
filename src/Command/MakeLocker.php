@@ -16,12 +16,12 @@ class MakeLocker extends Command
     /**
      * @var string
      */
-    protected static $defaultName = 'make:locker';
+    protected static string $defaultName = 'make:locker';
 
     /**
      * @var string
      */
-    protected static $defaultDescription = 'Make Locker';
+    protected static string $defaultDescription = 'Make Locker';
 
     /**
      * @return void
@@ -39,7 +39,7 @@ class MakeLocker extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $name = trim($input->getArgument('name'));
+        $name = trim((string)$input->getArgument('name'));
         $key = $input->getArgument('key');
         $class = Util::nameToClass($name);
         $file = app_path() . "/locker/{$class}Locker.php";
